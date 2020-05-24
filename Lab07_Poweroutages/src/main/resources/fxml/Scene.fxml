@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.poweroutages.FXMLController">
    <top>
@@ -17,4 +22,60 @@
          </font>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Select Nerc">
+                     <HBox.margin>
+                        <Insets left="360.0" top="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="Cboxnerc" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Max Years">
+                     <VBox.margin>
+                        <Insets left="360.0" top="30.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <TextField fx:id="txtY" />
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Max hours">
+                     <graphic>
+                        <TextField fx:id="txtH" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="360.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="buttonric" mnemonicParsing="false" onAction="#doRicorsione" text="Worst case analysis">
+                     <VBox.margin>
+                        <Insets left="400.0" top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <TextArea fx:id="txtResult" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" />
+         </padding>
+      </TextArea>
+   </bottom>
 </BorderPane>
