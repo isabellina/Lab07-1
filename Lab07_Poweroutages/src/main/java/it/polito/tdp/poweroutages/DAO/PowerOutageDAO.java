@@ -43,6 +43,7 @@ public class PowerOutageDAO {
 				"from PowerOutages \r\n" + 
 				"where nerc_id= ?" ;
 		List<PowerOutages> listaEventi = new LinkedList<PowerOutages>();
+		System.out.println(id);
 		
 		try{
 			Connection conn = ConnectDB.getConnection();
@@ -55,7 +56,7 @@ public class PowerOutageDAO {
 						res.getDate("date_event_began"), res.getDate("date_event_finished"));
 				listaEventi.add(p);
 			}
-			
+			System.out.println(listaEventi);
 			conn.close();
 		}
 		

@@ -5,10 +5,13 @@
 package it.polito.tdp.poweroutages;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.poweroutages.model.Model;
 import it.polito.tdp.poweroutages.model.Nerc;
+import it.polito.tdp.poweroutages.model.PowerOutages;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,6 +51,17 @@ public class FXMLController {
     	try {
     		int anni = Integer.parseInt(txtY.getText());
     		int ore = Integer.parseInt(txtH.getText());
+    		txtResult.clear();
+    		this.model.getEvent(Cboxnerc.getValue().getId());
+    		List<PowerOutages> result = new LinkedList<>(this.model.calcolaSottoinsiemeBlackout(ore, anni));
+    		if(result.size()==0) {
+    			txtResult.appendText("Lucky");
+    		}
+    		else {
+    			txtResult.appendText(this.model.calcolaSottoinsiemeBlackout(ore, anni).toString());
+    		}
+    			
+    		
     	}
     	catch(NumberFormatException n) {
     		txtResult.appendText("Inserire un numero intero");
